@@ -13,8 +13,7 @@ public class Book {
     private String title;
     private String isbn;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "publisher_id")
+    @OneToOne
     private Publisher publisher;
 
     @ManyToMany
@@ -30,7 +29,7 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public Book(String title, String isbn, Publisher publisher, Set<Author> authors) {
+    public Book(String title, String isbn, Publisher publisher) {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;

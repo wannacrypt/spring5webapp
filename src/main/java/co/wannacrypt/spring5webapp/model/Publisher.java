@@ -12,9 +12,6 @@ public class Publisher {
     private String name;
     private String address;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "publisher")
-    private Book book;
-
     public Publisher() {
     }
 
@@ -47,14 +44,6 @@ public class Publisher {
         this.address = address;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,8 +51,7 @@ public class Publisher {
         Publisher publisher = (Publisher) o;
         return Objects.equals(id, publisher.id) &&
                 Objects.equals(name, publisher.name) &&
-                Objects.equals(address, publisher.address) &&
-                Objects.equals(book, publisher.book);
+                Objects.equals(address, publisher.address);
     }
 
     @Override
@@ -77,7 +65,6 @@ public class Publisher {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", book=" + book +
                 '}';
     }
 }
